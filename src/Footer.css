@@ -1,9 +1,0 @@
-.Footer {
-    text-align: center;
-}
-
-@media (max-width: 900px) {
-    .Footer {
-        font-size: 14px;
-    }
-}

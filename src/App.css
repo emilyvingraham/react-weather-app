@@ -1,6 +1,23 @@
 .App {
     border: 1px solid black;
+    border-radius: 10px;
     padding: 10px;
-    background-color: #F3EEEE;
-    max-width: 60%;
+    background-color: #f3eeee;
+    width: 60%;
+    margin: 10px auto;
+}
+
+.App li {
+    list-style: none;
+}
+
+.Footer {
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .Footer {
+        font-size: 10px;
+    }
 }
