@@ -14,7 +14,7 @@ export default function App() {
             </a>{' '}
             and is{' '}
             <a
-                href="https://github.com/emilyvingraham"
+                href="https://github.com/emilyvingraham/react-weather-app"
                 target="_blank"
                 rel="noreferrer"
             >
