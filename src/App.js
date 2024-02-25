@@ -3,7 +3,7 @@ import './App.css';
 export default function App() {
     return (
         <div className="App">
-            <p>React Weather Application</p>
+            <h1>React Weather Application</h1>
             This project was built by{' '}
             <a
                 href="https://github.com/emilyvingraham"
