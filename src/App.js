@@ -1,29 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import Weather from './Weather.js';
+import Footer from './Footer.js';
 import './App.css';
 
 export default function App() {
     return (
-        <div className="App">
-            <div className="container">
-                <h1>React Weather Application</h1>
-                This project was built by{' '}
-                <a
-                    href="https://github.com/emilyvingraham"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Emily Ingraham
-                </a>{' '}
-                and is{' '}
-                <a
-                    href="https://github.com/emilyvingraham/react-weather-app"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    open-sourced on Github
-                </a>
-                .
-            </div>
+        <div className="App container">
+            <Weather />
+            <hr/>
+            <Footer />
         </div>
     );
 }

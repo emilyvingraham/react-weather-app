@@ -1,1 +1,6 @@
-
+.App {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #F3EEEE;
+    max-width: 60%;
+}
