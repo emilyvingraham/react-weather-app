@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FriendlyDate from './FriendlyDate.js';
-import SunsetDate from './SunsetDate.js';
+import FormattedDate from "./FormattedDate";
+import FormattedSunset from "./FormattedSunset";
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -54,9 +54,7 @@ export default function Weather(props) {
                         <h2 className="pb-0 mb-0">
                             <strong>{weatherData.city}</strong>
                         </h2>
-                        <p className="mb-0">
-                            <FriendlyDate date={weatherData.date} />
-                        </p>
+                        <p className="mb-0"><FormattedDate date={weatherData.date}/></p>
                         <p className="text-capitalize">
                             {weatherData.description}
                         </p>
@@ -94,8 +92,7 @@ export default function Weather(props) {
                     <div className="col-md-4 lh-1">
                         <ul>
                             <li>
-                                <strong>Sunset:</strong>{' '}
-                                <SunsetDate date={weatherData.sunset} />
+                                <strong>Sunset:</strong> <FormattedSunset date={weatherData.sunset}/>
                             </li>
                             <li>
                                 <strong>Humidity:</strong>{' '}
