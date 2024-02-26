@@ -3,13 +3,13 @@ import axios from 'axios';
 import './App.css';
 
 export default function Weather() {
-    const [loaded, setLoaded] = useState(false);
-    const [weatherData, setWeatherData] = useState({});
+    const [weatherData, setWeatherData] = useState({ loaded: false });
 
     function handleResponse(response) {
         console.log(response.data);
-        setLoaded(true);
+
         setWeatherData({
+            loaded: true,
             temperature: Math.round(response.data.main.temp),
             humidity: response.data.main.humidity,
             wind: response.data.wind.speed,
@@ -24,7 +24,7 @@ export default function Weather() {
         });
     }
 
-    if (loaded) {
+    if (weatherData.loaded) {
         return (
             <div className="container Weather">
                 <div className="row">
@@ -57,7 +57,7 @@ export default function Weather() {
                         </p>
                     </div>
                     <div className="col-md-3">
-                        <p className="fs-1">
+                        <p className="temperature">
                             <strong>{weatherData.temperature}</strong>
                             <sup className="fs-6">
                                 <strong className="degrees">°F | °C</strong>

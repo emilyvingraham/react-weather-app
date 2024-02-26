@@ -23,7 +23,16 @@
 
 .degrees {
     position: relative;
+    bottom: 18px;
+}
+.temperature {
+    font-size: 50px;
+}
+
+img {
+    position: relative;
     bottom: 10px;
+    right: 50px;
 }
 
 @media (max-width: 900px) {
@@ -49,6 +58,12 @@
 
     .degrees {
         position: relative;
-        bottom: 0px;
+        bottom: 20px;
+    }
+
+    img {
+        position: relative;
+        bottom: 10px;
+        right: 0px;
     }
 }
