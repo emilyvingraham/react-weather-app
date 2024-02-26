@@ -33,6 +33,11 @@ canvas {
 .degrees {
     position: relative;
     bottom: 18px;
+    text-decoration: none;
+}
+
+.degrees:hover {
+    text-decoration: underline;
 }
 .temperature {
     font-size: 50px;

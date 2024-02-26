@@ -1,7 +1,8 @@
 import React from 'react';
 import FormattedDate from './FormattedDate';
 import FormattedSunset from './FormattedSunset';
-import DetailsIcon from "./DetailsIcon";
+import DetailsIcon from './DetailsIcon';
+import TemperatureUnit from './TemperatureUnit';
 
 export default function Details(props) {
     return (
@@ -18,14 +19,11 @@ export default function Details(props) {
                 </div>
                 <div className="col-md-3">
                     <p className="temperature">
-                        <strong>{props.data.temperature}</strong>
-                        <sup className="fs-6">
-                            <strong className="degrees">°F | °C</strong>
-                        </sup>
+                        <TemperatureUnit fahrenheit={props.data.temperature} />
                     </p>
                 </div>
                 <div className="col-md-3">
-                    <DetailsIcon code={props.data.icon}/>
+                    <DetailsIcon code={props.data.icon} />
                 </div>
             </div>
             <div className="row TextResponsive">
@@ -53,7 +51,7 @@ export default function Details(props) {
                             <strong>Humidity:</strong> {props.data.humidity}%
                         </li>
                         <li>
-                            <strong>Wind:</strong> {props.data.wind}mph
+                            <strong>Wind:</strong> {props.data.wind} mp/h
                         </li>
                     </ul>
                 </div>
