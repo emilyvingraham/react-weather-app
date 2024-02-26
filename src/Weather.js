@@ -21,7 +21,7 @@ export default function Weather(props) {
             long: response.data.coord.lon,
             lat: response.data.coord.lat,
             description: response.data.weather[0].description,
-            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+            icon: response.data.weather[0].icon,
             date: new Date(response.data.dt * 1000),
         });
     }
@@ -46,7 +46,7 @@ export default function Weather(props) {
             <div className="container Weather">
                 <form onSubmit={handleSubmit}>
                     <div className="row">
-                        <div className="col-md-8">
+                        <div className="col-md-10">
                             <input
                                 className="form-control SearchResponsive"
                                 type="text"
@@ -57,11 +57,6 @@ export default function Weather(props) {
                         <div className="col-md-2">
                             <button className="btn btn-primary w-100 SearchResponsive">
                                 Search
-                            </button>
-                        </div>
-                        <div className="col-md-2">
-                            <button className="btn  btn-success w-100">
-                                Local
                             </button>
                         </div>
                     </div>

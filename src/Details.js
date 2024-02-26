@@ -1,6 +1,7 @@
 import React from 'react';
 import FormattedDate from './FormattedDate';
 import FormattedSunset from './FormattedSunset';
+import DetailsIcon from "./DetailsIcon";
 
 export default function Details(props) {
     return (
@@ -24,7 +25,7 @@ export default function Details(props) {
                     </p>
                 </div>
                 <div className="col-md-3">
-                    <img src={props.data.icon} alt={props.data.description} />
+                    <DetailsIcon code={props.data.icon}/>
                 </div>
             </div>
             <div className="row TextResponsive">
