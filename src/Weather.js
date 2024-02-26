@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FormattedDate from "./FormattedDate";
-import FormattedSunset from "./FormattedSunset";
+import FormattedDate from './FormattedDate';
+import FormattedSunset from './FormattedSunset';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -30,31 +30,36 @@ export default function Weather(props) {
     if (weatherData.loaded) {
         return (
             <div className="container Weather">
-                <div className="row">
-                    <div className="col-md-8">
-                        <input
-                            className="form-control SearchResponsive"
-                            type="text"
-                            placeholder="Enter a city"
-                        />
+                <form>
+                    <div className="row">
+                        <div className="col-md-8">
+                            <input
+                                className="form-control SearchResponsive"
+                                type="text"
+                                placeholder="Enter a city"
+                            />
+                        </div>
+                        <div className="col-md-2">
+                            <button className="btn btn-primary w-100 SearchResponsive">
+                                Search
+                            </button>
+                        </div>
+                        <div className="col-md-2">
+                            <button className="btn  btn-success w-100">
+                                Local
+                            </button>
+                        </div>
                     </div>
-                    <div className="col-md-2">
-                        <button className="btn btn-primary w-100 SearchResponsive">
-                            Search
-                        </button>
-                    </div>
-                    <div className="col-md-2">
-                        <button className="btn  btn-success w-100">
-                            Local
-                        </button>
-                    </div>
-                </div>
+                </form>
+
                 <div className="row py-3 TextResponsive">
                     <div className="col-md-6">
                         <h2 className="pb-0 mb-0">
                             <strong>{weatherData.city}</strong>
                         </h2>
-                        <p className="mb-0"><FormattedDate date={weatherData.date}/></p>
+                        <p className="mb-0">
+                            <FormattedDate date={weatherData.date} />
+                        </p>
                         <p className="text-capitalize">
                             {weatherData.description}
                         </p>
@@ -92,7 +97,8 @@ export default function Weather(props) {
                     <div className="col-md-4 lh-1">
                         <ul>
                             <li>
-                                <strong>Sunset:</strong> <FormattedSunset date={weatherData.sunset}/>
+                                <strong>Sunset:</strong>{' '}
+                                <FormattedSunset date={weatherData.sunset} />
                             </li>
                             <li>
                                 <strong>Humidity:</strong>{' '}
