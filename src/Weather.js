@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import FriendlyDate from './FriendlyDate.js';
+import SunsetDate from './SunsetDate.js';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -14,14 +16,14 @@ export default function Weather(props) {
             temperature: Math.round(response.data.main.temp),
             humidity: response.data.main.humidity,
             wind: response.data.wind.speed,
-            sunset: 'insert',
+            sunset: new Date(response.data.sys.sunset * 1000),
             city: response.data.name,
             country: response.data.sys.country,
             long: response.data.coord.lon,
             lat: response.data.coord.lat,
             description: response.data.weather[0].description,
             icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-            date: 'Sunday 16:00',
+            date: new Date(response.data.dt * 1000),
         });
     }
 
@@ -52,7 +54,9 @@ export default function Weather(props) {
                         <h2 className="pb-0 mb-0">
                             <strong>{weatherData.city}</strong>
                         </h2>
-                        <p className="mb-0">{weatherData.date}</p>
+                        <p className="mb-0">
+                            <FriendlyDate date={weatherData.date} />
+                        </p>
                         <p className="text-capitalize">
                             {weatherData.description}
                         </p>
@@ -90,7 +94,8 @@ export default function Weather(props) {
                     <div className="col-md-4 lh-1">
                         <ul>
                             <li>
-                                <strong>Sunset:</strong> {weatherData.sunset}
+                                <strong>Sunset:</strong>{' '}
+                                <SunsetDate date={weatherData.sunset} />
                             </li>
                             <li>
                                 <strong>Humidity:</strong>{' '}
