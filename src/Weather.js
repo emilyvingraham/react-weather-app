@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FormattedDate from './FormattedDate';
-import FormattedSunset from './FormattedSunset';
+import Details from './Details';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -51,66 +50,7 @@ export default function Weather(props) {
                         </div>
                     </div>
                 </form>
-
-                <div className="row py-3 TextResponsive">
-                    <div className="col-md-6">
-                        <h2 className="pb-0 mb-0">
-                            <strong>{weatherData.city}</strong>
-                        </h2>
-                        <p className="mb-0">
-                            <FormattedDate date={weatherData.date} />
-                        </p>
-                        <p className="text-capitalize">
-                            {weatherData.description}
-                        </p>
-                    </div>
-                    <div className="col-md-3">
-                        <p className="temperature">
-                            <strong>{weatherData.temperature}</strong>
-                            <sup className="fs-6">
-                                <strong className="degrees">°F | °C</strong>
-                            </sup>
-                        </p>
-                    </div>
-                    <div className="col-md-3">
-                        <img
-                            src={weatherData.icon}
-                            alt={weatherData.description}
-                        />
-                    </div>
-                </div>
-                <div className="row TextResponsive">
-                    <div className="col-md-2" />
-                    <div className="col-md-4 lh-1">
-                        <ul>
-                            <li>
-                                <strong>Country:</strong> {weatherData.country}
-                            </li>
-                            <li>
-                                <strong>Lon:</strong> {weatherData.long}°
-                            </li>
-                            <li>
-                                <strong>Lat:</strong> {weatherData.lat}°
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-4 lh-1">
-                        <ul>
-                            <li>
-                                <strong>Sunset:</strong>{' '}
-                                <FormattedSunset date={weatherData.sunset} />
-                            </li>
-                            <li>
-                                <strong>Humidity:</strong>{' '}
-                                {weatherData.humidity}%
-                            </li>
-                            <li>
-                                <strong>Wind:</strong> {weatherData.wind}mph
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-2" />
-                </div>
+                <Details data={weatherData}/>
             </div>
         );
     } else {
