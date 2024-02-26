@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Puff } from 'react-loader-spinner';
 import './App.css';
 
-export default function Weather() {
+export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ loaded: false });
 
     function handleResponse(response) {
@@ -105,11 +106,20 @@ export default function Weather() {
             </div>
         );
     } else {
-        let apiCity = 'Denver';
         let apiKey = '8c78e9e7e9928cd1a2a6f923072c3dec';
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${apiCity}&APPID=${apiKey}&units=imperial`;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&APPID=${apiKey}&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
 
-        return 'Loading';
+        return (
+            <Puff
+                visible={true}
+                height="80"
+                width="80"
+                color="#000000"
+                ariaLabel="puff-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+            />
+        );
     }
 }
