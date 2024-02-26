@@ -6,6 +6,7 @@ import './App.css';
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ loaded: false });
+    const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
         console.log(response.data);
@@ -26,16 +27,32 @@ export default function Weather(props) {
         });
     }
 
+    function update() {
+        let apiKey = '8c78e9e7e9928cd1a2a6f923072c3dec';
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
+    function handleChange(event) {
+        setCity(event.target.value);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        update();
+    }
+
     if (weatherData.loaded) {
         return (
             <div className="container Weather">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-md-8">
                             <input
                                 className="form-control SearchResponsive"
                                 type="text"
                                 placeholder="Enter a city"
+                                onChange={handleChange}
                             />
                         </div>
                         <div className="col-md-2">
@@ -50,14 +67,11 @@ export default function Weather(props) {
                         </div>
                     </div>
                 </form>
-                <Details data={weatherData}/>
+                <Details data={weatherData} />
             </div>
         );
     } else {
-        let apiKey = '8c78e9e7e9928cd1a2a6f923072c3dec';
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&APPID=${apiKey}&units=imperial`;
-        axios.get(apiUrl).then(handleResponse);
-
+        update();
         return (
             <Puff
                 visible={true}
