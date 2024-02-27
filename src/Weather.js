@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Details from './Details';
-import Forecast from "./Forecast";
+import Forecast from './Forecast';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -10,9 +10,9 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
-
         setWeatherData({
             loaded: true,
+            coordinates: response.data.coord,
             temperature: Math.round(response.data.main.temp),
             humidity: response.data.main.humidity,
             wind: response.data.wind.speed,
@@ -63,7 +63,7 @@ export default function Weather(props) {
                     </div>
                 </form>
                 <Details data={weatherData} />
-                <Forecast long={weatherData.long} lat={weatherData.lat}/>
+                <Forecast  coordinates={weatherData.coordinates}/>
             </div>
         );
     } else {
