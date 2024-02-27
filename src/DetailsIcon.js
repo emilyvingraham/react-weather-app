@@ -4,8 +4,8 @@ import ReactAnimatedWeather from 'react-animated-weather';
 
 export default function DetailsIcon(props) {
     const codeMapping = {
-        '01d': 'CLEAR_DAY',
-        '01n': 'CLEAR_NIGHT',
+        'clear-sky-day': 'CLEAR_DAY',
+        'clear-sky-night': 'CLEAR_NIGHT',
         '03d': 'CLOUDY',
         '03n': 'CLOUDY',
         '04d': 'CLOUDY',
