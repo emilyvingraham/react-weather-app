@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Details from './Details';
-import Forecast from './Forecast';
+import Forecast from "./Forecast";
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -10,10 +10,16 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
+
         setWeatherData({
             loaded: true,
+<<<<<<< HEAD
             temperature: Math.round(response.data.temperature.current),
             humidity: response.data.temperature.humidity,
+=======
+            temperature: Math.round(response.data.main.temp),
+            humidity: response.data.main.humidity,
+>>>>>>> parent of cd1ee5c (Committing before I cannot undo what I am about to test)
             wind: response.data.wind.speed,
             feelsLike: response.data.temperature.feels_like,
             city: response.data.city,
@@ -62,7 +68,7 @@ export default function Weather(props) {
                     </div>
                 </form>
                 <Details data={weatherData} />
-                <Forecast  coordinates={weatherData.coordinates}/>
+                <Forecast long={weatherData.long} lat={weatherData.lat}/>
             </div>
         );
     } else {

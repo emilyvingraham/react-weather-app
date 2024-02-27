@@ -1,42 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DetailsIcon from './DetailsIcon';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import axios from "axios";
+>>>>>>> parent of cd1ee5c (Committing before I cannot undo what I am about to test)
 import './Forecast.css';
 
 export default function Forecast(props) {
-    const [ready, setReady] = useState(false);
-
     function handleForecastResponse(response) {
-        setReady(true);
         console.log(response.data);
     }
+    
 
-    if (ready) {
-        return (
-            <div className="Forecast">
-                <div className="row">
-                    <div className="col Forecast-column">
-                        <div className="Forecast-day">Thursday</div>
+    let apiKey = '8c78e9e7e9928cd1a2a6f923072c3dec';
+    let longitude = props.long;
+    let latitude = props.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleForecastResponse);
+
+    return (
+        <div className="Forecast">
+            <div className="row">
+                <div className="col Forecast-column">
+                    <div className="Forecast-day">Wednesday</div>
+                    <div className="Forecast-icon">
                         <DetailsIcon code="01d" size={50} />
-                        <div className="Forecast-temperature">
-                            <span className="Forecast-temperature-min">
-                                18°
-                            </span>
-                            <span className="Forecast-temperature-max">
-                                55°
-                            </span>
-                        </div>
+                    </div>
+                    <div className="Forecast-temperature">
+                        <span className="Forecast-temperature-min">39°F</span>
+                        <span className="Forecast-temperature-max">44°F</span>
                     </div>
                 </div>
             </div>
-        );
-    } else {
-        let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
-        let city = props.data.city;
-        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-
-        axios.get(apiUrl).then(handleForecastResponse);
-
-        return null;
-    }
+        </div>
+    );
 }

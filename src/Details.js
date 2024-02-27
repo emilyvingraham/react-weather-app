@@ -38,10 +38,10 @@ export default function Details(props) {
                             <strong>Country:</strong> {props.data.country}
                         </li>
                         <li>
-                            <strong>Lon:</strong> {props.data.long}
+                            <strong>Lon:</strong> {props.data.long}°
                         </li>
                         <li>
-                            <strong>Lat:</strong> {props.data.lat}
+                            <strong>Lat:</strong> {props.data.lat}°
                         </li>
                     </ul>
                 </div>
