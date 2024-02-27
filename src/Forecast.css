@@ -1,10 +1,16 @@
 :root {
-    --primary-tempertaure-dark: rgba(38, 80, 115, 0.9);
+    --primary-tempertaure-dark: rgba(38, 80, 115, 1);
     --primary-temperature-light: rgba(71, 78, 104, 0.8);
+    --primary-column-hover: rgba(238, 238, 238, 0.9);
 }
 
 .Forecast {
     text-align: center;
+}
+
+.Forecast-column:hover {
+    background-color: var(--primary-column-hover);
+    border-radius: 10px;
 }
 
 .Forecast-day {
@@ -15,19 +21,23 @@
 }
 
 .Forecast-temperature {
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: 700;
 }
 
 .Forecast-temperature-max {
     margin-left: 8px;
     color: var(--primary-tempertaure-dark);
-    font-weight: 600;
+    
 }
 
 .Forecast-temperature-min {
     margin-right: 8px;
     color: var(--primary-temperature-light);
-    font-weight: 600;
+    
 }
 
 .Forecast-icon {

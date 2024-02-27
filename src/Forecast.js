@@ -6,7 +6,7 @@ export default function Forecast() {
     return (
         <div className="Forecast">
             <div className="row">
-                <div className="col">
+                <div className="col Forecast-column">
                     <div className="Forecast-day">Wednesday</div>
                     <div className="Forecast-icon">
                         <DetailsIcon code="01d" size={50} />
