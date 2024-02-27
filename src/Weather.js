@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Details from './Details';
+import Forecast from "./Forecast";
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -62,6 +63,7 @@ export default function Weather(props) {
                     </div>
                 </form>
                 <Details data={weatherData} />
+                <Forecast />
             </div>
         );
     } else {

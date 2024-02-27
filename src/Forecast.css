@@ -1,0 +1,35 @@
+:root {
+    --primary-tempertaure-dark: rgba(38, 80, 115, 0.9);
+    --primary-temperature-light: rgba(71, 78, 104, 0.8);
+}
+
+.Forecast {
+    text-align: center;
+}
+
+.Forecast-day {
+    font-weight: bolder;
+    color: var(--primary-dark);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.Forecast-temperature {
+    font-size: 14px;
+}
+
+.Forecast-temperature-max {
+    margin-left: 8px;
+    color: var(--primary-tempertaure-dark);
+    font-weight: 600;
+}
+
+.Forecast-temperature-min {
+    margin-right: 8px;
+    color: var(--primary-temperature-light);
+    font-weight: 600;
+}
+
+.Forecast-icon {
+    color: #000000;
+}

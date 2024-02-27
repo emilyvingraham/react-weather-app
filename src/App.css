@@ -1,6 +1,6 @@
 :root {
     --primary-light: rgba(238, 245, 255, 0.4);
-    --primary-dark: #265073;
+    --primary-dark: rgba(38,80, 115, 1);
 }
 
 .App {
@@ -25,11 +25,7 @@
     text-align: center;
     font-size: 14px;
 }
-canvas {
-    position: relative;
-    top: 10px;
-    right: 50px;
-}
+
 .degrees {
     position: relative;
     bottom: 18px;
@@ -67,11 +63,5 @@ canvas {
     .degrees {
         position: relative;
         bottom: 20px;
-    }
-
-    canvas {
-        position: relative;
-        bottom: 0px;
-        right: 0px;
     }
 }

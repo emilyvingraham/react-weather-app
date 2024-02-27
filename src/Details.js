@@ -23,7 +23,11 @@ export default function Details(props) {
                     </p>
                 </div>
                 <div className="col-md-3">
-                    <DetailsIcon code={props.data.icon} />
+                    <DetailsIcon
+                        code={props.data.icon}
+                        size={100}
+                        color="#265073"
+                    />
                 </div>
             </div>
             <div className="row TextResponsive">
